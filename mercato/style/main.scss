@@ -1,0 +1,637 @@
+// Import Global Items File
+@use "./sass/global";
+// Import Colors File
+@use "./sass/colors" as *;
+// Import Variables File
+@use "./sass/variables" as *;
+// Import Mixin File
+@use "./sass/mixins" as *;
+
+body {
+  color: $textColor;
+  background-color: $bgColor;
+
+  //   header
+  header {
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: transparent;
+    transition: $transtion;
+    &.sticky {
+      background-color: black;
+      border-bottom: 1px solid white;
+      padding: 10px;
+    }
+    // background-color: red;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo {
+        img {
+          width: 150px;
+          height: auto;
+          @include breakpoints(small) {
+            width: 100px;
+            height: auto;
+          }
+          @include breakpoints(mobile) {
+            width: 100px;
+            height: auto;
+          }
+        }
+      }
+      .links {
+        display: flex;
+        align-items: center;
+        @include breakpoints(small) {
+          position: absolute;
+          top: 82px;
+          right: -100%;
+          background-color: #604320;
+          padding: 20px;
+          height: 70vh;
+          flex-direction: column;
+          width: 300px;
+          border-top: 50px solid #334155;
+          border-radius: 15px;
+          transition: $transtion;
+          &.bing {
+            right: 14px;
+          }
+        }
+        @include breakpoints(mobile) {
+          position: absolute;
+          top: 82px;
+          right: -100%;
+          background-color: #604320;
+          padding: 20px;
+          height: 70vh;
+          flex-direction: column;
+          width: 300px;
+          border-top: 50px solid #334155;
+          border-radius: 15px;
+          transition: $transtion;
+          &.bing {
+            right: 14px;
+          }
+        }
+        li {
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+          @include breakpoints(small) {
+            // margin-bottom: 30px;
+            margin-top: 40px;
+          }
+          @include breakpoints(mobile) {
+            // margin-bottom: 30px;
+            margin-top: 40px;
+          }
+          a {
+            padding: 0 20px;
+            font-size: 18px;
+            color: $bgColor;
+            transition: $transtion;
+            padding: 6px 10px;
+            border-radius: 4px;
+            &:hover,
+            &.active {
+              color: $mainColor;
+              font-weight: 700;
+              background-color: #eee;
+              @include breakpoints(small) {
+                color: $mainColor;
+              }
+              @include breakpoints(mobile) {
+                color: $mainColor;
+              }
+            }
+            @include breakpoints(small) {
+              color: $bgColor;
+            }
+            @include breakpoints(mobile) {
+              color: $bgColor;
+            }
+          }
+        }
+      }
+      .icons {
+        a {
+          font-size: 18px;
+          @include breakpoints(small) {
+            margin-right: 30px;
+          }
+          @include breakpoints(mobile) {
+            // margin-right: 30px;
+            font-size: 15px;
+          }
+          &:not(:last-child) {
+            margin-right: 10px;
+            color: $mainColor;
+            padding: 8px 10px;
+            background-color: #eee;
+            border-radius: 50%;
+            transition: $transtion;
+            &:hover {
+              background-color: $mainColor;
+              color: #eee;
+            }
+          }
+          &:last-child {
+            color: $textColor;
+            display: none;
+            padding: 8px 10px;
+            background-color: #eee;
+            border-radius: 50%;
+            cursor: pointer;
+            @include breakpoints(small) {
+              display: inline-flex;
+            }
+            @include breakpoints(mobile) {
+              display: inline-flex;
+            }
+          }
+        }
+      }
+    }
+  }
+  //   Main
+  main {
+    //   Home Section
+    .home {
+      height: 100vh;
+      background-color: #997851;
+
+      .container {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        // @include breakpoints(small) {
+        //   grid-template-columns: 1fr;
+        //   text-align: center;
+        //   height: 117vh;
+        // }
+        .home-text {
+          // position: relative;
+          @include breakpoints(small) {
+            margin-top: 50px;
+          }
+          @include breakpoints(mobile) {
+            margin-top: 100px;
+            // &::after {
+            //   content: "";
+            //   background-color: $bgColor;
+            //   height: 100%;
+            //   position: absolute;
+            //   width: 1px;
+            //   right: -200px;
+            //   top: 0;
+            // }
+            // &::before {
+            //   content: "";
+            //   background-color: $bgColor;
+            //   height: 1px;
+            //   position: absolute;
+            //   width: 100%;
+            //   bottom: 0;
+            // }
+          }
+          h4 {
+            font-size: 25px;
+            color: white;
+            font-weight: 400;
+            margin-bottom: 30px;
+            @include breakpoints(small) {
+              font-size: 20px;
+            }
+            @include breakpoints(mobile) {
+              font-size: 20px;
+            }
+          }
+          h1 {
+            font-size: $bigFont;
+            color: black;
+            font-weight: 700;
+            margin-bottom: 30px;
+            @include breakpoints(small) {
+              font-size: 40px;
+            }
+            @include breakpoints(mobile) {
+              font-size: 61px;
+            }
+          }
+          .btn {
+            color: white;
+            background-color: black;
+            padding: 12px 30px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            border-radius: 12px;
+            transition: $transtion;
+            &:hover {
+              letter-spacing: 2px;
+              opacity: 0.8;
+            }
+            @include breakpoints(small) {
+              font-size: 10px;
+              padding: 10px 25px;
+            }
+            @include breakpoints(mobile) {
+              font-size: 10px;
+              padding: 10px 25px;
+            }
+          }
+        }
+        .home-img {
+          img {
+            width: 100%;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            @include breakpoints(small) {
+              margin-top: 100px;
+              max-width: 100%;
+            }
+            @include breakpoints(mobile) {
+              // margin-top: 100px;
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    //   Features
+    .feature {
+      .container {
+        .feat-text {
+          @include heading;
+        }
+        .feat-boxes {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+          align-items: center;
+          gap: 30px;
+          .box {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 15px;
+            border-radius: 10px;
+            transition: $transtion;
+            &:hover {
+              opacity: 0.9;
+              .show {
+                letter-spacing: 2px;
+                opacity: 0.9;
+              }
+            }
+            &.one {
+              background-color: $mainColor;
+            }
+            &.two {
+              background-color: #655a4d;
+            }
+            &.third {
+              background-color: #ab814e;
+            }
+            .img-contain {
+              img {
+                width: 170px;
+                height: 170px;
+                max-width: 100%;
+              }
+            }
+            .texts {
+              h6 {
+                font-size: 13px;
+                color: white;
+                font-weight: 300;
+                letter-spacing: 1px;
+                margin-bottom: 20px;
+              }
+              h3 {
+                color: white;
+                font-size: 18px;
+                font-weight: 500;
+              }
+            }
+            .show {
+              display: inline-block;
+              color: white;
+              font-size: 15px;
+              letter-spacing: 1px;
+              padding: 6px 15px;
+              background-color: black;
+              border-radius: 10px;
+              transition: $transtion;
+            }
+          }
+        }
+      }
+    }
+    //   Products
+    .products {
+      .container {
+        .product-text {
+          @include heading;
+        }
+        .products-boxes {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+          gap: 20px;
+          .box {
+            position: relative;
+            background-color: #eee;
+            padding: 15px;
+            border-radius: 10px;
+            transition: $transtion;
+            &:hover {
+              transform: translateY(10px);
+            }
+            .img-contain {
+              text-align: center;
+              img {
+                width: 300px;
+                height: 300px;
+                max-width: 100%;
+                @include breakpoints(medium) {
+                  width: 215px;
+                  height: 190px;
+                }
+                @include breakpoints(small) {
+                  width: 215px;
+                  height: 225px;
+                }
+                @include breakpoints(mobile) {
+                  width: 175px;
+                  height: 175px;
+                }
+              }
+            }
+            .product-inbox {
+              h3 {
+                color: $textColor;
+                font-size: $smallFont;
+                font-weight: 300;
+                margin-bottom: 5px;
+              }
+              h6 {
+                color: $mainColor;
+                font-size: 12px;
+                font-weight: 400;
+                margin-bottom: 5px;
+              }
+            }
+          }
+        }
+        .sats {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          .price {
+            a {
+              display: inline-block;
+              margin-top: 5px;
+              font-size: 12px;
+              border: 1px solid indianred;
+              color: indianred;
+              font-weight: 500;
+              padding: 5px 10px;
+              border-radius: 6px;
+              transition: $transtion;
+              &:hover {
+                background-color: white;
+                font-weight: 700;
+                color: red;
+                border-color: red;
+              }
+              @include breakpoints(mobile) {
+                padding: 3px 7px;
+              }
+            }
+          }
+          .rate {
+            i {
+              color: #ddbf19;
+              transition: $transtion;
+              cursor: pointer;
+              &:hover {
+                color: gold;
+              }
+            }
+          }
+        }
+        .heart {
+          background-color: white;
+          text-align: center;
+          padding: 8px;
+          border-radius: 50%;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          transition: $transtion;
+          cursor: pointer;
+          i {
+            color: red;
+            transition: $transtion;
+          }
+          &:hover {
+            background-color: red;
+            i {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    //  Mercato
+    .mercato {
+      .container {
+        .cta {
+          background: url("../images/cta.jpg") center / cover no-repeat;
+          padding: 30px;
+          height: 100vh;
+          border-radius: 10px;
+          .cta-text {
+            text-align: right;
+            img {
+              width: 500px;
+              height: 500px;
+              max-width: 100%;
+              @include breakpoints(small) {
+                width: 350px;
+                height: auto;
+              }
+              @include breakpoints(mobile) {
+                width: 350px;
+                height: auto;
+              }
+            }
+            h3 {
+              font-size: 30px;
+              color: $textColor;
+              margin-bottom: 10px;
+              font-weight: 400;
+              letter-spacing: 1px;
+              @include breakpoints(small) {
+                font-size: 25px;
+              }
+              @include breakpoints(mobile) {
+                font-size: 23px;
+              }
+            }
+            p {
+              color: grey;
+              font-size: 18px;
+              line-height: 1.8;
+              margin-bottom: 20px;
+              @include breakpoints(small) {
+                font-size: 15px;
+              }
+              @include breakpoints(mobile) {
+                font-size: 15px;
+                padding-left: 160px;
+              }
+            }
+            a {
+              color: white;
+              background-color: $otherColor;
+              padding: 6px 10px;
+              border-radius: 8px;
+              letter-spacing: 1px;
+              letter-spacing: 1px;
+              transition: $transtion;
+              &:hover {
+                letter-spacing: 2px;
+                opacity: 0.9;
+              }
+              @include breakpoints(mobile) {
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //   Footer
+  footer {
+    padding: 30px;
+    background-color: $mainColor;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      .content {
+        img {
+          width: 200px;
+          height: auto;
+          @include breakpoints(small) {
+            width: 125px;
+          }
+          @include breakpoints(mobile) {
+            width: 125px;
+          }
+        }
+        h5 {
+          color: white;
+          font-weight: 400;
+          margin-bottom: 20px;
+          font-size: 20px;
+          @include breakpoints(small) {
+            font-size: 17px;
+          }
+          @include breakpoints(mobile) {
+            font-size: 15px;
+          }
+        }
+        li {
+          transition: $transtion;
+          &:not(:last-child) {
+            margin-bottom: 15px;
+          }
+          &:hover {
+            transform: translateX(-5px);
+          }
+          a {
+            color: grey;
+            font-size: 18px;
+            transition: $transtion;
+            @include breakpoints(small) {
+              font-size: 14px;
+            }
+            @include breakpoints(mobile) {
+              font-size: 13px;
+            }
+            &:hover {
+              color: #eee;
+            }
+          }
+        }
+        &:last-child {
+          ul {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            li {
+              background-color: $otherColor;
+              text-align: center;
+              border-radius: 50%;
+              height: 55px;
+              transition: $transtion;
+              @include breakpoints(small) {
+                height: 45px;
+              }
+              @include breakpoints(mobile) {
+                height: 45px;
+              }
+              i {
+                padding: 20px;
+                color: white;
+                font-size: 18px;
+                transition: $transtion;
+                @include breakpoints(small) {
+                  font-size: 15px;
+                  padding: 15px;
+                }
+                @include breakpoints(mobile) {
+                  font-size: 15px;
+                  padding: 15px;
+                }
+                &:hover {
+                  color: #997851;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //   CopyRights
+  .copy {
+    text-align: center;
+    padding: 10px;
+    background-color: $otherColor;
+    p {
+      color: $bgColor;
+      font-size: 18px;
+      font-weight: 400;
+      @include breakpoints(small) {
+        font-size: 15px;
+      }
+      @include breakpoints(mobile) {
+        font-size: 15px;
+      }
+    }
+  }
+}
