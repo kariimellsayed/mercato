@@ -1,0 +1,18 @@
+@use "./colors" as *;
+@use "./variables" as *;
+* {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+// container
+.container {
+  padding: 0 50px;
+}
+// Global Items
+.section-padding {
+  padding: 80px 0;
+}

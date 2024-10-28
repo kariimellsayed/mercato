@@ -1,0 +1,39 @@
+@use "./colors" as *;
+@use "./variables" as *;
+// Heading Of Section
+@mixin heading {
+  margin-bottom: 100px;
+  h2 {
+    color: $textColor;
+    font-size: $MidFont;
+    @include breakpoints(small) {
+      font-size: 31px;
+    }
+    @include breakpoints(mobile) {
+      font-size: 25px;
+    }
+    span {
+      color: grey;
+    }
+  }
+}
+// Media Mixens
+@mixin breakpoints($point) {
+  @if $point == mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == small {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
